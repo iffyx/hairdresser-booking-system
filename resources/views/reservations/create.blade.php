@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.appreservation')
 
 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2 class="text-center">Dodaj nową rezerwację</h2>
+                <h2 class="text-center p-3">Dodaj nową rezerwację</h2>
             </div>
         </div>
     </div>
@@ -68,19 +68,19 @@
         <div class="form-group row">
             <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Data') }}</label>
             <div class="col-md-6">
-                <input type="date" name="date" value="" class="form-control">
+                <input type="date" name="date" id="my-date-input" class="form-control">
             </div>
         </div>
         <div class="form-group row">
             <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Godzina') }}</label>
             <div class="col-md-6">
                 <select name="time" value="" class="form-control">
-                    <option class="option" id="9:00:00" value="9:00">9:00</option>
-                    <option class="option" id="9:30:00" value="9:30">9:30</option>
                     <option class="option" id="10:00:00" value="10:00">10:00</option>
                     <option class="option" id="10:30:00" value="10:30">10:30</option>
                     <option class="option" id="11:00:00" value="11:00">11:00</option>
                     <option class="option" id="11:30:00" value="11:30">11:30</option>
+                    <option class="option" id="12:00:00" value="11:00">11:00</option>
+                    <option class="option" id="12:30:00" value="11:30">11:30</option>
                 </select>
             </div>
         </div>
@@ -96,24 +96,5 @@
             <a class="btn btn-primary" href="{{ route('reservations.index') }}"> Anuluj</a>
         </div>
     </div>
-
-
-    <script>
-        $('input[type="date"]').change(function () {
-            var date = <?php echo json_encode($time, JSON_PRETTY_PRINT) ?>;
-
-            var n = document.getElementsByClassName('option');
-            for (var i = 0; i < n.length; i++) {
-                n[i].disabled = false;
-            }
-            for (let i = 0; i < date.length; i++) {
-                if (date[i].date == this.value) {
-                    let time = date[i].time;
-                    console.log(time);
-                    document.getElementById(time).disabled = true;
-                }
-            }
-        });
-    </script>
 
 @endsection

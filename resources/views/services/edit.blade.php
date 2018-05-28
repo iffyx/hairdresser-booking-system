@@ -5,10 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edytuj usługę</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('services.index') }}"> Anuluj</a>
+                <h2 class="text-center p-3">Edytuj usługę</h2>
             </div>
         </div>
     </div>
@@ -53,6 +50,11 @@
 
 
     </form>
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <a class="btn btn-primary" href="{{ route('services.index') }}"> Anuluj</a>
+        </div>
+    </div>
 
 
 @endsection

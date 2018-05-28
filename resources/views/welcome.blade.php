@@ -7,11 +7,19 @@
                 <img src="salon.jpg" alt="salon fryzjerski">
             </div>
 
-            <div class="col-2">
-                <p>Nasz adres:</p>
-                <p>80-111 Gdańsk</p>
-                <p>ul. Gdańska 10/5</p>
-                <p>tel. 123-456-789</p>
+
+    <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Kontakt:</h5>
+                    <p class="card-text">80-111 Gdańsk</p>
+                    <p class="card-text">ul. Gdańska 10/5</p>
+                    <p class="card-text">tel. 123-456-789</p>
+                </div>
             </div>
+
+    </div>
+
+
 </div>
 @endsection

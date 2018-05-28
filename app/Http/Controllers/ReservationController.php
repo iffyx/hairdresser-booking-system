@@ -11,7 +11,19 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $reservations = Reservation::latest()->paginate(5);
+
+
+
+        $reservations = DB::table('reservations')->join('services', function ($join) {
+            $join->on('reservations.service_id', '=', 'services.id');
+        })->select('reservations.id', 'reservations.name', 'reservations.surname', 'reservations.mobile', 'reservations.email', 'services.name as service', 'reservations.date', 'reservations.time')
+            ->get();
+
+
+
+
+
+        //$reservations = Reservation::latest()->paginate(5);
         return view('reservations.index',compact('reservations'))->with('i', (request()->input('page', 1) - 1) * 5);
         /*$services = Service::pluck('name', 'id');
         $time = DB::table('reservations')->select('date','time')->get();
@@ -46,7 +58,10 @@ class ReservationController extends Controller
 
 
     public function edit(Reservation $reservation){
-        return view('reservations.edit',compact('reservation'));
+        $services = Service::pluck('name', 'id');
+        $time = DB::table('reservations')->select('date','time')->get();
+
+        return view('reservations.edit',compact('reservation', 'services', 'time'));
     }
 
     public function update(Request $request, Reservation $reservation){
@@ -58,7 +73,6 @@ class ReservationController extends Controller
             'date' => 'required',
             'time' => 'required'
         ]);
-
 
         $reservation->update($request->all());
 
@@ -82,7 +96,7 @@ class ReservationController extends Controller
         return view('create-reservation', compact('services', 'time'));
     }
 
-    public function store2(Request $request)
+    public function customerReservation(Request $request)
     {
         request()->validate([
             'name' => 'required',

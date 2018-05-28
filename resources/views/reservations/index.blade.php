@@ -28,6 +28,7 @@
             <th>Nazwisko</th>
             <th>Telefon</th>
             <th>E-mail</th>
+            <th>Usługa</th>
             <th>Data</th>
             <th>Godzina</th>
             <th></th>
@@ -39,6 +40,7 @@
                 <td>{{ $reservation->surname }}</td>
                 <td>{{ $reservation->mobile }}</td>
                 <td>{{ $reservation->email }}</td>
+                <td>{{ $reservation->service }}</td>
                 <td>{{ $reservation->date }}</td>
                 <td>{{ $reservation->time }}</td>
                 <td>
@@ -55,5 +57,11 @@
             </tr>
         @endforeach
     </table>
+
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <a class="btn btn-primary" href="{{ route('home') }}"> Wróć</a>
+        </div>
+    </div>
 
 @endsection

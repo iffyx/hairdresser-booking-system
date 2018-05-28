@@ -47,7 +47,7 @@ class ServiceController extends Controller
 
 
         return redirect()->route('services.index')
-            ->with('success','Product created successfully.');
+            ->with('success','Usługa dodana prawidłowo.');
     }
 
     public function show(Service $service)
@@ -71,7 +71,7 @@ class ServiceController extends Controller
 
 
         return redirect()->route('services.index')
-            ->with('success','Product updated successfully');
+            ->with('success','Usługa edytowana prawidłowo.');
     }
 
 
@@ -80,6 +80,6 @@ class ServiceController extends Controller
 
 
         return redirect()->route('services.index')
-            ->with('success','Product deleted successfully');
+            ->with('success','Usługa usunięta prawidłowo.');
     }
 }

@@ -48,4 +48,10 @@
         @endforeach
     </table>
 
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <a class="btn btn-primary" href="{{ route('home') }}"> Wróć</a>
+        </div>
+    </div>
+
 @endsection

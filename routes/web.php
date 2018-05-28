@@ -15,19 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin', function () {
+    return view('auth/login');
+})->middleware('guest');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/price-list', 'ServiceController@priceList')->name('price-list');
 Route::get('/create-reservation', 'ReservationController@createReservation')->name('create-reservation');
-Route::post('store2', ['as' => 'store2', 'uses' => 'ReservationController@store2']);
-/*Route::resource('services','ServiceController');
-Route::resource('reservations','ReservationController');*/
+Route::post('customerReservation', ['as' => 'customerReservation', 'uses' => 'ReservationController@store2']);
 
-//Route::group(['middleware' => ['auth', 'Admin']], function() {
-
-    Route::resource('services','ServiceController')->middleware('auth');
-    Route::resource('reservations','ReservationController')->middleware('auth');
-//});
-//Route::post('reservation', ['as' => 'reservation', 'uses' => 'ReservationController@store']);
+Route::resource('services','ServiceController')->middleware('auth');
+Route::resource('reservations','ReservationController')->middleware('auth');
