@@ -11,16 +11,10 @@ class ReservationController extends Controller
 {
     public function index()
     {
-
-
-
         $reservations = DB::table('reservations')->join('services', function ($join) {
             $join->on('reservations.service_id', '=', 'services.id');
         })->select('reservations.id', 'reservations.name', 'reservations.surname', 'reservations.mobile', 'reservations.email', 'services.name as service', 'reservations.date', 'reservations.time')
             ->get();
-
-
-
 
 
         //$reservations = Reservation::latest()->paginate(5);
@@ -31,14 +25,11 @@ class ReservationController extends Controller
         return view('create-reservation', compact('services', 'time'));*/
     }
 
-
-
     public function create(){
         $services = Service::pluck('name', 'id');
         $time = DB::table('reservations')->select('date','time')->get();
         return view('reservations.create', compact('services', 'time'));
     }
-
 
     public function store(Request $request, $bool){
         request()->validate([
@@ -110,7 +101,7 @@ class ReservationController extends Controller
         Reservation::create($request->all());
         $services = Service::pluck('name', 'id');
         $time = DB::table('reservations')->select('date','time')->get();
-        return view('create-reservation', compact('services', 'time'));
+        return view('create-reservation', compact('services', 'time'))->withSuccess('Rezerwacja wykonana prawidłowo!');
         /*return redirect()->route('reservations.index')
             ->with('success', 'Rezerwacja wykonana prawidłowo');*/
     }

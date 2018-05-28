@@ -1,6 +1,12 @@
 @extends('layouts.welcome')
 @section('content')
 
+    @if (!empty($success))
+        <p class="text-center">
+        {{ $success }}
+            </p>
+    @endif
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -64,8 +70,8 @@
                                             <option class="option" id="10:30:00" value="10:30">10:30</option>
                                             <option class="option" id="11:00:00" value="11:00">11:00</option>
                                             <option class="option" id="11:30:00" value="11:30">11:30</option>
-                                            <option class="option" id="12:00:00" value="11:00">11:00</option>
-                                            <option class="option" id="12:30:00" value="11:30">11:30</option>
+                                            <option class="option" id="12:00:00" value="12:00">12:00</option>
+                                            <option class="option" id="12:30:00" value="12:30">12:30</option>
                                         </select>
                                     </div>
                             </div>

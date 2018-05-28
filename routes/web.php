@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/price-list', 'ServiceController@priceList')->name('price-list');
 Route::get('/create-reservation', 'ReservationController@createReservation')->name('create-reservation');
-Route::post('customerReservation', ['as' => 'customerReservation', 'uses' => 'ReservationController@store2']);
+Route::post('customerReservation', ['as' => 'customerReservation', 'uses' => 'ReservationController@customerReservation']);
 
 Route::resource('services','ServiceController')->middleware('auth');
 Route::resource('reservations','ReservationController')->middleware('auth');

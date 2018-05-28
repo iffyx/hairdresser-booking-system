@@ -81,8 +81,8 @@
                     <option class="option" id="10:30:00" value="10:30">10:30</option>
                     <option class="option" id="11:00:00" value="11:00">11:00</option>
                     <option class="option" id="11:30:00" value="11:30">11:30</option>
-                    <option class="option" id="12:00:00" value="11:00">11:00</option>
-                    <option class="option" id="12:30:00" value="11:30">11:30</option>
+                    <option class="option" id="12:00:00" value="12:00">12:00</option>
+                    <option class="option" id="12:30:00" value="12:30">12:30</option>
                 </select>
             </div>
         </div>
@@ -100,3 +100,27 @@
     </div>
 
 @endsection
+
+@section('script')
+    <script>
+        $('input[type="date"]').change(function () {
+            var date = <?php echo json_encode($time, JSON_PRETTY_PRINT) ?>;
+
+            var n = document.getElementsByClassName('option');
+            for (var i = 0; i < n.length; i++) {
+                n[i].disabled = false;
+            }
+            for (let i = 0; i < date.length; i++) {
+                if (date[i].date == this.value) {
+                    let time = date[i].time;
+                    console.log(time);
+                    document.getElementById(time).disabled = true;
+                }
+            }
+        });
+
+        var now = new Date(),
+            minDate = now.toISOString().substring(0,10);
+        $('#my-date-input').prop('min', minDate);
+    </script>
+    @endsection

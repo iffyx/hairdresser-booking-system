@@ -23,15 +23,15 @@
 
     <table class="table table-bordered">
         <tr>
-            <th>Nr</th>
+            <th style="width: 5%">Nr</th>
             <th>Imię</th>
             <th>Nazwisko</th>
-            <th>Telefon</th>
+            <th style="width: 11%">Telefon</th>
             <th>E-mail</th>
             <th>Usługa</th>
-            <th>Data</th>
-            <th>Godzina</th>
-            <th></th>
+            <th style="width: 11%">Data</th>
+            <th style="width: 10%">Godzina</th>
+            <th style="width: 10%"></th>
         </tr>
         @foreach ($reservations as $reservation)
             <tr>

@@ -40,6 +40,10 @@
             font-family: Arial, Helvetica, Verdana, sans-serif;
         }
 
+         table { table-layout: fixed; }
+        table th, table td { overflow: hidden; }
+
+
     </style>
 </head>
 <body>
@@ -87,7 +91,7 @@
             </div>
         </nav>
 
-        <main class="py-4 col-md-8 offset-md-2">
+        <main class="py-4 col-md-10 offset-md-1">
             @yield('content')
         </main>
     </div>

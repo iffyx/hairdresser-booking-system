@@ -92,27 +92,9 @@
     </main>
 </div>
 
-<script>
-    $('input[type="date"]').change(function () {
-        var date = <?php echo json_encode($time, JSON_PRETTY_PRINT) ?>;
 
-        var n = document.getElementsByClassName('option');
-        for (var i = 0; i < n.length; i++) {
-            n[i].disabled = false;
-        }
-        for (let i = 0; i < date.length; i++) {
-            if (date[i].date == this.value) {
-                let time = date[i].time;
-                console.log(time);
-                document.getElementById(time).disabled = true;
-            }
-        }
-    });
+@yield('script')
 
-    var now = new Date(),
-        minDate = now.toISOString().substring(0,10);
-    $('#my-date-input').prop('min', minDate);
-</script>
 
 
 
